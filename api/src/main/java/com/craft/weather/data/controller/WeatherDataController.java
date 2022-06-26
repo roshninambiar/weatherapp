@@ -1,6 +1,7 @@
 package com.craft.weather.data.controller;
 
-import com.craft.weather.data.service.WeatherDataService;
+import com.craft.weather.data.model.ForecastResponseModel;
+import com.craft.weather.data.service.IWeatherDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WeatherDataController {
 
     @Autowired
-    WeatherDataService service;
+    IWeatherDataService service;
 
     @GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllForecast() {
@@ -21,13 +22,13 @@ public class WeatherDataController {
     }
 
     @GetMapping(path = "/{city}")
-    public Object getForecastForCity(@PathVariable("city") String city) {
-        return service.getCityWeatherForecast(city);
+    public ForecastResponseModel getForecastForCity(@PathVariable("city") String city) {
+        return service.getCityWeatherForecast(city.toUpperCase());
     }
 
 
     @GetMapping(path = "/geocode/{city}")
     public Object getCityGeocode(@PathVariable("city") String city) {
-        return service.getGeocodeForCity(city);
+        return service.getGeocodeForCity(city.toUpperCase());
     }
 }
