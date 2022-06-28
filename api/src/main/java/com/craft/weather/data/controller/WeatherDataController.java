@@ -26,9 +26,4 @@ public class WeatherDataController {
         return service.getCityWeatherForecast(city.toUpperCase());
     }
 
-
-    @GetMapping(path = "/geocode/{city}")
-    public Object getCityGeocode(@PathVariable("city") String city) {
-        return service.getGeocodeForCity(city.toUpperCase());
-    }
 }

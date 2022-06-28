@@ -2,20 +2,25 @@ package com.craft.weather.data.config;
 
 public enum CityGeoData {
 
-    BRISBANE("Queensland", "-27.4689682", "153.0234991"),
-    CANBERRA("Australian Capital Territory", "-35.2975906", "149.1012676"),
-    DARWIN("Northern Territory", "-12.46044", "130.8410469"),
-    HOBART("Tasmania", "-42.8825088", "147.3281233"),
-    MELBOURNE("Victoria", "-37.8142176", "144.9631608"),
-    PERTH("Western Australia", "-31.9527121", "115.8604796"),
-    SYDNEY("New South Wales", "-33.768528", "150.9568559523945");
+    BRISBANE(1, "Queensland", "AU","-27.46794", "153.02809"),
+    CANBERRA(2, "Australian Capital Territory", "AU","-35.28346", "149.12807"),
+    DARWIN(3, "Northern Territory", "AU","-12.46113", "130.84185"),
+    HOBART(4, "Tasmania", "AU","-42.87936", "147.32941"),
+    MELBOURNE(5, "Victoria", "AU","-37.814", "144.96332"),
+    PERTH(6, "Western Australia", "AU","-31.95224", "115.8614"),
+    SYDNEY(7, "New South Wales", "AU","-33.86785", "151.20732");
 
+    private int id;
     private String state;
+
+    private String country;
     private String lat;
     private String lon;
 
-    CityGeoData(String state, String lat, String lon) {
+    CityGeoData(int id, String state, String country, String lat, String lon) {
+        this.id = id;
         this.state = state;
+        this.country = country;
         this.lat = lat;
         this.lon = lon;
     }
@@ -28,6 +33,13 @@ public enum CityGeoData {
         return this.lon;
     }
 
+    public String getCountry() {
+        return this.country;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
 
 
 }

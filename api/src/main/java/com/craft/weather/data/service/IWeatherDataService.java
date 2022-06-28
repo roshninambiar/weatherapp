@@ -8,8 +8,4 @@ public interface IWeatherDataService {
 
     public ForecastResponseModel getCityWeatherForecast(String city);
 
-    public Object getGeocodeForCity(String city);
-
-    public List<String> getAllCities();
-
 }

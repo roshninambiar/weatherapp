@@ -14,11 +14,23 @@ public class ForecastResponseModel {
 
     String city_name;
 
-    Long lon;
+    String lon;
 
     String timezone;
 
-    Long lat;
+    String lat;
 
     String country_code;
+
+    @Override
+    public String toString() {
+        return "ForecastResponseModel{" +
+                "data=" + data +
+                ", city_name='" + city_name + '\'' +
+                ", lon=" + lon +
+                ", timezone='" + timezone + '\'' +
+                ", lat=" + lat +
+                ", country_code='" + country_code + '\'' +
+                '}';
+    }
 }
